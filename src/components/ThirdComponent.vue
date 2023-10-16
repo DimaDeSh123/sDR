@@ -15,7 +15,11 @@
                 <p class="riddle">{{ thirdRiddle }}</p>
                 <input class="input" type="text" v-model="thirdAnswer">
             </div>
-            <button class="glow-on-hover second-class" @click="checkCode" :disabled="!firstAnswer && !secondAnswer && !thirdAnswer">Проверить</button>
+            <div class="riddle-row">
+                <p class="riddle" v-html="fourRiddle"></p>
+                <input class="input" type="text" v-model="fourAnswer">
+            </div>
+            <button class="glow-on-hover second-class" @click="checkCode" :disabled="!firstAnswer || !secondAnswer || !thirdAnswer || !fourAnswer">Проверить</button>
         </div>
        
     </div>
@@ -28,9 +32,11 @@ export default {
       riddle: "Лучший подарок под елкой", 
       secondRiddle: "Если друзья закрыли дверь", 
       thirdRiddle: "Чем кормить Тоби", 
+      fourRiddle: "С <strike>кем</strike> чем нужно обниматься на утро ДР",
       secondAnswer: "",
       firstAnswer: "", 
       thirdAnswer: "",
+      fourAnswer: "",
       };
   },
   methods: {
